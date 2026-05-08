@@ -857,112 +857,124 @@ function Reservar({
           onSubmit={handleSubmit}
           className="grid gap-5 rounded-3xl border border-paper-line bg-paper-soft p-6 md:grid-cols-2 md:gap-6 md:p-10"
         >
-          <motion.label variants={fadeUp} className="block md:col-span-2">
-            <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
-              Nombre completo
-            </span>
-            <input
-              type="text"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Tu nombre"
-              className="input-base"
-            />
-          </motion.label>
+          <motion.div variants={fadeUp} className="md:col-span-2">
+            <label className="block">
+              <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
+                Nombre completo
+              </span>
+              <input
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Tu nombre"
+                className="input-base"
+              />
+            </label>
+          </motion.div>
 
-          <motion.label variants={fadeUp} className="block md:col-span-2">
-            <span className="mb-2 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-ink-mute">
-              <span>Servicio</span>
-              {service && (
-                <button
-                  type="button"
-                  onClick={handleClearService}
-                  className="text-sage-deep underline-offset-2 hover:underline"
-                >
-                  Limpiar
-                </button>
-              )}
-            </span>
-            <select
-              required
-              value={service}
-              onChange={(e) => setService(e.target.value)}
-              className="input-base appearance-none"
-            >
-              <option value="" className="bg-paper text-ink">
-                Selecciona un servicio
-              </option>
-              {SERVICES.map((cat) => (
-                <optgroup key={cat.id} label={cat.label}>
-                  {allServiceNames
-                    .filter((s) => s.category === cat.label)
-                    .map((s) => (
-                      <option
-                        key={s.value}
-                        value={s.value}
-                        className="bg-paper text-ink"
-                      >
-                        {s.value} — ${s.price} · {s.duration}
-                      </option>
-                    ))}
-                </optgroup>
-              ))}
-            </select>
-          </motion.label>
+          <motion.div variants={fadeUp} className="md:col-span-2">
+            <label className="block">
+              <span className="mb-2 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-ink-mute">
+                <span>Servicio</span>
+                {service && (
+                  <button
+                    type="button"
+                    onClick={handleClearService}
+                    className="text-sage-deep underline-offset-2 hover:underline"
+                  >
+                    Limpiar
+                  </button>
+                )}
+              </span>
+              <select
+                required
+                value={service}
+                onChange={(e) => setService(e.target.value)}
+                className="input-base appearance-none"
+              >
+                <option value="" className="bg-paper text-ink">
+                  Selecciona un servicio
+                </option>
+                {SERVICES.map((cat) => (
+                  <optgroup key={cat.id} label={cat.label}>
+                    {allServiceNames
+                      .filter((s) => s.category === cat.label)
+                      .map((s) => (
+                        <option
+                          key={s.value}
+                          value={s.value}
+                          className="bg-paper text-ink"
+                        >
+                          {s.value} — ${s.price} · {s.duration}
+                        </option>
+                      ))}
+                  </optgroup>
+                ))}
+              </select>
+            </label>
+          </motion.div>
 
-          <motion.label variants={fadeUp} className="block">
-            <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
-              Fecha
-            </span>
-            <input
-              type="date"
-              required
-              min={today}
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="input-base"
-            />
-          </motion.label>
+          <motion.div variants={fadeUp}>
+            <label className="block">
+              <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
+                Fecha
+              </span>
+              <input
+                type="date"
+                required
+                min={today}
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="input-base"
+              />
+            </label>
+          </motion.div>
 
-          <motion.label variants={fadeUp} className="block">
-            <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
-              Hora preferida
-            </span>
-            <input
-              type="time"
-              required
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-              className="input-base"
-            />
-          </motion.label>
+          <motion.div variants={fadeUp}>
+            <label className="block">
+              <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
+                Hora preferida
+              </span>
+              <input
+                type="time"
+                required
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+                className="input-base"
+              />
+            </label>
+          </motion.div>
 
-          <motion.label variants={fadeUp} className="block md:col-span-2">
-            <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
-              Teléfono <span className="text-ink-mute/50">(opcional)</span>
-            </span>
-            <input
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="(787) 555-0000"
-              className="input-base"
-            />
-          </motion.label>
+          <motion.div variants={fadeUp} className="md:col-span-2">
+            <label className="block">
+              <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
+                Teléfono <span className="text-ink-mute/50">(opcional)</span>
+              </span>
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="(787) 555-0000"
+                className="input-base"
+              />
+            </label>
+          </motion.div>
 
-          <motion.label variants={fadeUp} className="block md:col-span-2">
-            <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
-              Notas <span className="text-ink-mute/50">(alergias, preferencias, ocasión)</span>
-            </span>
-            <textarea
-              rows={3}
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              placeholder="Cuéntanos lo que necesites..."
-              className="input-base resize-none"
-            />
-          </motion.label>
+          <motion.div variants={fadeUp} className="md:col-span-2">
+            <label className="block">
+              <span className="mb-2 block text-[10px] uppercase tracking-[0.22em] text-ink-mute">
+                Notas <span className="text-ink-mute/50">(alergias, preferencias, ocasión)</span>
+              </span>
+              <textarea
+                rows={3}
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="Cuéntanos lo que necesites..."
+                className="input-base resize-none"
+              />
+            </label>
+          </motion.div>
 
           <motion.div
             variants={fadeUp}
@@ -1329,7 +1341,7 @@ export default function App() {
   };
 
   return (
-    <div className="paper-tex min-h-screen bg-paper text-ink antialiased">
+    <div className="min-h-screen bg-paper text-ink antialiased">
       <Navbar />
       <main>
         <Hero />
