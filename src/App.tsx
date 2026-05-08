@@ -832,11 +832,11 @@ function Reservar({
       id="reservar"
       className="relative overflow-hidden bg-paper py-24 md:py-32"
     >
-      <div className="absolute inset-0 -z-0 opacity-40">
+      <div className="pointer-events-none absolute inset-0 opacity-40">
         <div className="absolute right-0 top-0 h-[400px] w-[400px] animate-drift rounded-full bg-sage/15 blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-5xl px-5 md:px-10">
+      <div className="relative mx-auto max-w-5xl px-5 md:px-10">
         <SectionHeading
           eyebrow="Reservaciones"
           title={
@@ -1118,11 +1118,11 @@ function Visitanos() {
 function CTAFinal() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-paper via-paper-soft to-paper py-24 md:py-32">
-      <div className="absolute inset-0 -z-0">
+      <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 animate-drift rounded-full bg-sage/15 blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-3xl px-5 text-center md:px-10">
+      <div className="relative mx-auto max-w-3xl px-5 text-center md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
