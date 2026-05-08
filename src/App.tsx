@@ -849,11 +849,7 @@ function Reservar({
           subtitle="Llena los detalles y te devolvemos confirmación por WhatsApp en minutos. Si vienes desde el catálogo, ya te seleccionamos el servicio."
         />
 
-        <motion.form
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
+        <form
           onSubmit={handleSubmit}
           className="grid gap-5 rounded-3xl border border-paper-line bg-paper-soft p-6 md:grid-cols-2 md:gap-6 md:p-10"
         >
@@ -978,7 +974,7 @@ function Reservar({
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
           </div>
-        </motion.form>
+        </form>
       </div>
     </section>
   );
